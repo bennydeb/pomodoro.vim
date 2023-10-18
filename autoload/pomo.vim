@@ -21,7 +21,7 @@ function! pomo#notify() abort
 	if exists('g:pomodoro_notification_cmd')
 	  if exists('*jobstart')
 			call jobstart(g:pomodoro_notification_cmd)
-		" Sun Jan 20 2019 13:07 Stopped working in vim 
+		" Sun Jan 20 2019 13:07 Stopped working in vim
 		" elseif exists('*job_start')
 			" call job_start(g:pomodoro_notification_cmd)
 		else
@@ -51,21 +51,21 @@ function! pomo#status() abort
 endfunction
 
 function! pomo#status_bar() abort
-	let l:use_icons = get(g:, 'pomodoro_use_devicons', 0)
-	let l:show_time = get(g:, 'pomodoro_show_time_remaining', 0)
+	let l:use_icons = get(g:, 'pomodoro_use_devicons', 1)
+	let l:show_time = get(g:, 'pomodoro_show_time_remaining', 1)
 	if s:pomo_status == 0
-		return ''
+		return "\ue007"
 	elseif s:pomo_status == 1
-		return (l:use_icons ? s:pomo_ongoing_icon . ' ' : '') .
+		return (l:use_icons ? s:pomo_ongoing_icon : '') .
 					\ (empty(s:pomo_name) ? '' : s:pomo_name) .
 					\ (l:use_icons ? '' : '') .
-					\ (l:show_time ? ' (' . pomo#remaining_time() . ' m)': '')
+					\ (l:show_time ? '/' . pomo#remaining_time() : '')
 	elseif s:pomo_status > 1
 		if s:pomo_status == 2
-			return (l:use_icons ? s:pomo_shortpause_icon . '('. pomo#remaining_time() . ' m)'
+			return (l:use_icons ? s:pomo_shortpause_icon . '/'. pomo#remaining_time() . '/'
 						\ : 'short break')
 		else
-			return (l:use_icons ? s:pomo_longpause_icon . '('. pomo#remaining_time() . ' m)'
+			return (l:use_icons ? s:pomo_longpause_icon . '/'. pomo#remaining_time() . '/'
 						\ : 'long break')
 		endif
 	endif
@@ -158,7 +158,7 @@ endfunction
 
 function! pomo#log(msg) abort
 	if exists('g:pomodoro_log_file')
-		call writefile([a:msg], g:pomodoro_log_file, "a")
+		call writefile([a:msg], expand(g:pomodoro_log_file), "a")
 	endif
 endfunction
 
@@ -168,7 +168,7 @@ function! pomo#get_num_pomos_today() abort
 	endif
 
 	try
-		let log = readfile(g:pomodoro_log_file)
+		let log = readfile(expand(g:pomodoro_log_file))
 	catch
 		return -2
 	endtry

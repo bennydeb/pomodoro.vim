@@ -1,0 +1,15 @@
+:PomodoroStart	pomodoro.txt	/*:PomodoroStart*
+:PomodoroStop	pomodoro.txt	/*:PomodoroStop*
+:PomodoroStop	pomodoro.txt	/*:PomodoroStop*
+g:pomodoro_log_file	pomodoro.txt	/*g:pomodoro_log_file*
+g:pomodoro_show_time_remaining	pomodoro.txt	/*g:pomodoro_show_time_remaining*
+g:pomodoro_time_slack	pomodoro.txt	/*g:pomodoro_time_slack*
+g:pomodoro_time_work	pomodoro.txt	/*g:pomodoro_time_work*
+pomodoro-bugs	pomodoro.txt	/*pomodoro-bugs*
+pomodoro-commands	pomodoro.txt	/*pomodoro-commands*
+pomodoro-configuration	pomodoro.txt	/*pomodoro-configuration*
+pomodoro-lightline	pomodoro.txt	/*pomodoro-lightline*
+pomodoro-overview	pomodoro.txt	/*pomodoro-overview*
+pomodoro-statusline	pomodoro.txt	/*pomodoro-statusline*
+pomodoro-usage	pomodoro.txt	/*pomodoro-usage*
+pomodoro.txt	pomodoro.txt	/*pomodoro.txt*
