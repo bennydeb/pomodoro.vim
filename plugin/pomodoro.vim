@@ -15,34 +15,38 @@
 " 	g:pomodoro_log_file 	- 	Path to log file
 
 if exists("g:loaded_pomodoro")
-  finish
+    finish
 endif
 
 if !has('timers')
-	echo 'Vim/Neovim doesnt not have support for timers. Ergo plugin will not work'
-	finish
+    echo 'Vim/Neovim doesnt not have support for timers. Ergo plugin will not work'
+    finish
 endif
 
 let g:loaded_pomodoro = 1
 
 if !exists('g:pomodoro_show_time_remaining')
-	let g:pomodoro_show_time_remaining = 1
+    let g:pomodoro_show_time_remaining = 1
 endif
 
 if !exists('g:pomodoro_time_work')
-  let g:pomodoro_time_work = 25
+    let g:pomodoro_time_work = 25
 endif
 
 if !exists('g:pomodoro_time_slack')
-  let g:pomodoro_time_slack = 5
+    let g:pomodoro_time_slack = 5
 endif
 
 if !exists('g:pomodoro_time_reward')
-	let g:pomodoro_time_reward = 25
+    let g:pomodoro_time_reward = 25
 endif
 
 if !exists('g:pomodoros_before_reward')
-	let g:pomodoros_before_reward = 4
+    let g:pomodoros_before_reward = 4
+endif
+
+if !exists('g:pomodoro_use_devicons')
+    let g:pomodoro_use_devicons = 0
 endif
 
 let s:save_cpo = &cpo
